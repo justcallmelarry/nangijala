@@ -1,7 +1,6 @@
 FROM python:3.9.0-slim AS dependencies
 WORKDIR /
 COPY poetry.lock pyproject.toml ./
-ADD ./src /src
 
 RUN apt-get update \
     && apt-get install -y build-essential libssl-dev libffi-dev curl \
@@ -15,6 +14,7 @@ RUN poetry install \
     && apt-get remove -y build-essential \
     && apt -y autoremove \
     && rm poetry.lock
+ADD ./src /src
 
 WORKDIR /src/service
 
@@ -27,6 +27,7 @@ RUN poetry install \
     && apt-get remove -y build-essential \
     && apt -y autoremove \
     && rm poetry.lock
+ADD ./src /src
 
 WORKDIR /src/service
 
