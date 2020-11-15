@@ -19,8 +19,8 @@ class Nangijala(tomodachi.Service):
         }
     }
 
-    @http(("GET", "POST"), r"/renew/(?P<person_uuid>[^/]+?)/?")
-    async def cards(self, request: web.Request, person_uuid: str) -> web.Response:
+    @http(("GET", "POST"), r"/renew/(?P<switch_uuid>[^/]+?)/?")
+    async def cards(self, request: web.Request, switch_uuid: str) -> web.Response:
         return web.json_response({"status": "ok"}, status=200)
 
     @http(("GET", "POST"), r"/health/?", ignore_logging=[200])
