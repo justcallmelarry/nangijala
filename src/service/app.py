@@ -19,10 +19,6 @@ class Nangijala(tomodachi.Service):
         }
     }
 
-    @http(("GET", "POST"), r"/renew/(?P<switch_uuid>[^/]+?)/?")
-    async def cards(self, request: web.Request, switch_uuid: str) -> web.Response:
-        return web.json_response({"status": "ok"}, status=200)
-
     @http(("GET", "POST"), r"/health/?", ignore_logging=[200])
     async def health_check(self, request: web.Request) -> web.Response:
         return web.json_response({"status": "ok"}, status=200)
@@ -42,3 +38,7 @@ class Nangijala(tomodachi.Service):
     @http_error(status_code=500)
     async def error_500(self, request: web.Request) -> web.Response:
         return web.json_response({"status": "internal server error"}, status=500)
+
+    @http(("GET", "POST"), r"/renew/(?P<switch_uuid>[^/]+?)/?")
+    async def cards(self, request: web.Request, switch_uuid: str) -> web.Response:
+        return web.json_response({"status": "ok"}, status=200)
