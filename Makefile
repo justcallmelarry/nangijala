@@ -3,6 +3,12 @@
 SERVICE_NAME:=nangijala
 IMAGE_NAME:=nangijala
 
+help:
+	@echo "Commands:               |"
+	@echo "  $$ make build          | build development image"
+	@echo "  $$ make dev            | run development image in container"
+	@echo "  $$ make release        | build and start "
+
 build:
 	docker build -t ${IMAGE_NAME}:dev --target development .
 
@@ -17,7 +23,7 @@ build-release:
 
 release:
 	build-release
-	docker stop ${SERVICE_NAME}
+	docker stop ${SERVICE_NAME} 2> /dev/null
 	docker run --rm -it -p 5500:80 \
 		-v ${PWD}/src:/src:cached \
 		-v ${PWD}/logs:/logs \
