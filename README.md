@@ -14,6 +14,8 @@ In the movies it's usually the bad guy releasing some sort of world devastating 
   * Email notification
 * Possibility to update switch with new actions
 * Montly/quarterly test of service
+* Unit tests
+* Github actions or similar for tests
 * In service-test, ask people to confirm the used keypair
 * Possibility to add new switches
 * Possibility to delete switches
