@@ -12,6 +12,8 @@ In the movies it's usually the bad guy releasing some sort of world devastating 
   * Alert that an action will soon be taken
   * SMS notification
   * Email notification
+    * Email templates with text
+    * Add public key for  encrypted email contents
 * Possibility to update switch with new actions
 * Montly/quarterly test of service
 * Unit tests
